@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CabifyShop</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_cart">Add to Cart</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="price">Price</string>
+    <string name="total">Total</string>
+    <string name="discounts">Discounts</string>
+</resources>

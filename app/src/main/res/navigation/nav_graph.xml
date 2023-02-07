@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment"
+    >
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.challenge.cabifyshop.ui.view.fragment.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/splash_fragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_productListFragment"
+            app:destination="@id/productListFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.challenge.cabifyshop.ui.view.fragment.ProductListFragment"
+        tools:layout = "@layout/list_product_fragment"
+        >
+        <action
+            android:id="@+id/action_listProductFragment_to_detailProductFragment"
+            app:destination="@id/productDetailFragment"
+            />
+        <action
+            android:id="@+id/action_listProductFragment_to_castFragment"
+            app:destination="@id/castFragment"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.challenge.cabifyshop.ui.view.fragment.DetailProductFragment"
+        tools:layout="@layout/detail_product_fragment"
+        >
+        <action
+            android:id="@+id/action_detailFragment_to_castFragment"
+            app:destination="@id/castFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/castFragment"
+        android:name="com.challenge.cabifyshop.ui.view.fragment.CartFragment"
+        tools:layout="@layout/cart_fragment"
+        />
+
+</navigation>

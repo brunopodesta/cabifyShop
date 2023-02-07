@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:padding="10dp"
+        android:src="@drawable/mug"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtProdName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgProduct"
+        tools:text="MUGG" />
+
+    <TextView
+        android:id="@+id/txtProdPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgProduct"
+        tools:text="MUGG" />
+
+    <LinearLayout
+        android:id="@+id/lyQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtProdName"
+        android:layout_marginTop="30dp">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnDecrease"
+            android:layout_width="@dimen/btn_quantity_width"
+            android:layout_height="@dimen/btn_quantity_height"
+            android:background="@drawable/ic_remove_circle_24"
+            android:layout_marginEnd="20dp"
+            />
+
+        <TextView
+            android:id="@+id/txvQuantity"
+            android:layout_width="@dimen/btn_quantity_width"
+            android:layout_height="@dimen/btn_quantity_height"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            tools:text="5" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnIncrease"
+            android:layout_width="@dimen/btn_quantity_width"
+            android:layout_height="@dimen/btn_quantity_height"
+            android:background="@drawable/ic_add_circle_24"
+            android:layout_marginStart="20dp"/>
+
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAddCart"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        android:text="@string/add_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lyQuantity" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBuy"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:text="@string/buy_now"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddCart" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
