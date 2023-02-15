@@ -1,105 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/imgProduct"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:padding="10dp"
-        android:src="@drawable/mug"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtProdName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgProduct"
-        tools:text="MUGG" />
-
-    <TextView
-        android:id="@+id/txtProdPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgProduct"
-        tools:text="MUGG" />
-
-    <LinearLayout
-        android:id="@+id/lyQuantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtProdName"
-        android:layout_marginTop="30dp">
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btnDecrease"
-            android:layout_width="@dimen/btn_quantity_width"
-            android:layout_height="@dimen/btn_quantity_height"
-            android:background="@drawable/ic_remove_outline_24"
-            android:layout_marginEnd="20dp"
-            />
+        <ImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:padding="10dp"
+            android:src="@drawable/mug"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txvQuantity"
-            android:layout_width="@dimen/btn_quantity_width"
-            android:layout_height="@dimen/btn_quantity_height"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            tools:text="5" />
+            android:id="@+id/txtProdName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgProduct"
+            tools:text="MUGG" />
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btnIncrease"
-            android:layout_width="@dimen/btn_quantity_width"
-            android:layout_height="@dimen/btn_quantity_height"
-            android:background="@drawable/ic_add_circle_24"
-            android:layout_marginStart="20dp"/>
+        <TextView
+            android:id="@+id/txtProdPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgProduct"
+            tools:text="MUGG" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lyQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtProdName">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnDecrease"
+                android:layout_width="@dimen/btn_quantity_width"
+                android:layout_height="@dimen/btn_quantity_height"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/ic_remove_outline_24" />
+
+            <TextView
+                android:id="@+id/txvQuantity"
+                android:layout_width="@dimen/btn_quantity_width"
+                android:layout_height="@dimen/btn_quantity_height"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                tools:text="5" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnIncrease"
+                android:layout_width="@dimen/btn_quantity_width"
+                android:layout_height="@dimen/btn_quantity_height"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/ic_add_circle_24" />
+
+        </LinearLayout>
 
 
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAddCart"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:padding="10dp"
-        android:text="@string/add_cart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyQuantity" />
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddCart"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:padding="10dp"
+            android:text="@string/add_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyQuantity" />
 
 
-    <TextView
-        android:id="@+id/txvPromotion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddCart"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:padding="10dp"
-        tools:text="Buying 2 items of this article you get one FREE!!"
-        />
+        <TextView
+            android:id="@+id/txvPromotion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAddCart"
+            tools:text="Buying 2 items of this article you get one FREE!!" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

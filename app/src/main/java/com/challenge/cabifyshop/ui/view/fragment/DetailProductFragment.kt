@@ -14,6 +14,8 @@ import com.challenge.cabifyshop.domain.model.TypeProduct
  * From here the user can add the product to the Cart.
  */
 
+const val QUANTITY_VALUE_KEY = "quantity_value_key"
+
 class DetailProductFragment : BaseFragment() {
 
     private var _binding: DetailProductFragmentBinding? = null
@@ -35,6 +37,16 @@ class DetailProductFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (savedInstanceState != null) {
+            quantity = savedInstanceState.getInt(QUANTITY_VALUE_KEY)
+        }
+
+        if (quantity > 0) {
+            setEnableDecreaseButton(true)
+        } else {
+            setEnableDecreaseButton(false)
+        }
 
         activityViewModel.selectedProduct.observe(viewLifecycleOwner) { product ->
 
@@ -75,13 +87,11 @@ class DetailProductFragment : BaseFragment() {
         }
 
         binding.btnDecrease.apply {
-            isEnabled = false
             setOnClickListener {
                 quantity--
                 binding.txvQuantity.text = quantity.toString()
                 if (quantity == 0) {
-                    binding.btnDecrease.setBackgroundResource(R.drawable.ic_remove_outline_24)
-                    binding.btnDecrease.isEnabled = false
+                    setEnableDecreaseButton(false)
                 }
             }
         }
@@ -90,15 +100,32 @@ class DetailProductFragment : BaseFragment() {
             quantity++
             binding.txvQuantity.text = quantity.toString()
 
-            if(!binding.btnDecrease.isEnabled) {
-                binding.btnDecrease.isEnabled = true
-                binding.btnDecrease.setBackgroundResource(R.drawable.ic_remove_circle_24)
+            if (!binding.btnDecrease.isEnabled) {
+                setEnableDecreaseButton(true)
             }
         }
 
         binding.txvQuantity.text = quantity.toString()
+    }
+
+    fun setEnableDecreaseButton(enable: Boolean) {
+        if (enable) {
+            binding.btnDecrease.isEnabled = true
+            binding.btnDecrease.setBackgroundResource(R.drawable.ic_remove_circle_24)
+        } else {
+            binding.btnDecrease.setBackgroundResource(R.drawable.ic_remove_outline_24)
+            binding.btnDecrease.isEnabled = false
+        }
 
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        val value = binding.txvQuantity.text.toString().toInt()
+        outState.putInt(QUANTITY_VALUE_KEY, value)
+        super.onSaveInstanceState(outState)
+
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()
