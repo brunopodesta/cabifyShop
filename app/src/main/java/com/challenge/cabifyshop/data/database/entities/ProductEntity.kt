@@ -5,6 +5,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.challenge.cabifyshop.domain.model.Product
 
+/**
+ * Product table
+ */
+
 @Entity(tableName = "product_table")
 data class ProductEntity (
     @PrimaryKey

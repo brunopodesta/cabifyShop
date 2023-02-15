@@ -1,0 +1,18 @@
+{
+  "promotions": [
+    {
+      "code" : "twoforone",
+      "description" : "Buying 2 items of this article you get one FREE!!",
+      "products": [ "VOUCHER" ],
+      "new_price": 0.0,
+      "min_quantity" : 2
+    },
+    {
+      "code" : "bulk_purchase",
+      "description" : "Buy 3 or more items and the price for unit is 19.00€",
+      "products": [ "TSHIRT" ],
+      "new_price": 19.0,
+      "min_quantity" : 3
+    }
+  ]
+}

@@ -2,4 +2,7 @@
 <resources>
     <dimen name="btn_quantity_width">50dp</dimen>
     <dimen name="btn_quantity_height">50dp</dimen>
+
+    <dimen name="btn_quantity_cart_width">25dp</dimen>
+    <dimen name="btn_quantity_cart_height">25dp</dimen>
 </resources>

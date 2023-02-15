@@ -3,6 +3,10 @@ package com.challenge.cabifyshop.domain.model
 import com.challenge.cabifyshop.data.database.entities.ProductEntity
 import com.challenge.cabifyshop.data.model.ProductModel
 
+/**
+ * Class that represent a Product in domain layer
+ */
+
 data class Product(
     val code: String,
     val name: String,
@@ -14,13 +18,6 @@ data class Product(
         "MUG" -> TypeProduct.MUG()
         else -> TypeProduct.OTHER()
     }
-}
-
-sealed class TypeProduct() {
-    class VOUCHER : TypeProduct()
-    class TSHIRT  : TypeProduct()
-    class MUG  : TypeProduct()
-    class OTHER  : TypeProduct()
 }
 
 fun ProductModel.toDomain() = Product(code = code, name = name, price = price)

@@ -6,6 +6,10 @@ import com.challenge.cabifyshop.data.database.dao.ShopDao
 import com.challenge.cabifyshop.data.database.entities.ProductEntity
 import com.challenge.cabifyshop.data.database.entities.ShopCartEntity
 
+/**
+ * Shop Database
+ */
+
 @Database(entities = [ProductEntity::class, ShopCartEntity::class], version = 2)
 abstract class ShopDatabase : RoomDatabase() {
 

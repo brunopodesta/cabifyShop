@@ -9,7 +9,12 @@ import com.challenge.cabifyshop.databinding.CardiviewProductItemBinding
 import com.challenge.cabifyshop.domain.model.Product
 import com.challenge.cabifyshop.domain.model.TypeProduct
 
-class ProductAdapter (private val onClickCallBack: (String) -> Unit) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+/**
+ * Adapter to show the list of Products
+ */
+
+class ProductAdapter(private val onClickCallBack: (String) -> Unit) :
+    RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     private var productList = ArrayList<Product>()
 
@@ -28,7 +33,7 @@ class ProductAdapter (private val onClickCallBack: (String) -> Unit) : RecyclerV
         return productList.size
     }
 
-    fun setData(products : List<Product>) {
+    fun setData(products: List<Product>) {
         productList.clear()
         productList.addAll(products)
         notifyDataSetChanged()
@@ -40,7 +45,8 @@ class ProductAdapter (private val onClickCallBack: (String) -> Unit) : RecyclerV
         fun bind(product: Product, onClick: (String) -> Unit) {
             binging.apply {
                 txvProductName.text = product.name
-                txvProductPrice.text = "€${product.price}"
+                txvProductPrice.text =
+                    itemView.context.getString(R.string.price_amount, product.price)
                 when (product.productType) {
                     is TypeProduct.MUG -> productImage.setImageResource(R.drawable.mug)
                     is TypeProduct.OTHER -> productImage.setImageResource(R.drawable.cabify_logo)

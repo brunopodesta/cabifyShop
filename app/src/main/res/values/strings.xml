@@ -1,10 +1,18 @@
 <resources>
-    <string name="app_name">CabifyShop</string>
+    <string name="app_name">Cabify Shop</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_cart">Add to Cart</string>
     <string name="buy_now">Buy Now</string>
     <string name="price">Price</string>
-    <string name="total">Total</string>
-    <string name="discounts">Discounts</string>
+    <string name="total">Total: %1$.2f €</string>
+    <string name="discounts">Discounts: %1$.2f €</string>
+    <string name="subtotal">Subtotal: %1$.2f €</string>
+    <string name="remove">Remove</string>
+    <string name="product_detail">Product Detail</string>
+    <string name="product_list">Product List</string>
+    <string name="item_added">Item added to the cart</string>
+    <string name="empty_cart">Your Cart is empty. \nBuy some of our amazing Products!!</string>
+    <string name="amount">%1$.2f €</string>
+    <string name="price_amount">%1$.2f €</string>
 </resources>
