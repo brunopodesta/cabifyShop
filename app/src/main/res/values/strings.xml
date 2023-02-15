@@ -15,4 +15,5 @@
     <string name="empty_cart">Your Cart is empty. \nBuy some of our amazing Products!!</string>
     <string name="amount">%1$.2f €</string>
     <string name="price_amount">%1$.2f €</string>
+    <string name="checkout">Check Out</string>
 </resources>

@@ -45,14 +45,16 @@ class CabifyShopViewModel @Inject constructor(
     private val _cartCounter = MutableLiveData<Int>()
     val cartCounter : LiveData<Int> get() = _cartCounter
 
+    var isLoading = true
+
     fun onCreate() {
         viewModelScope.launch {
             val listProducts = getProductUseCase()
             _productListLiveData.postValue(listProducts)
+            val listPromotions = getPromotionsUseCase()
+            _promotions.value = listPromotions
+            isLoading = false
         }
-
-        val listPromotions = getPromotionsUseCase()
-        _promotions.value = listPromotions
 
         getProductFromCart()
 

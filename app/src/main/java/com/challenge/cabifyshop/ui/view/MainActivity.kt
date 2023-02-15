@@ -25,7 +25,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val screenSplash = installSplashScreen()
-        screenSplash.setKeepOnScreenCondition {false}
+        screenSplash.setKeepOnScreenCondition {
+                mainViewModel.isLoading
+            }
 
         setContentView(R.layout.activity_main)
 
