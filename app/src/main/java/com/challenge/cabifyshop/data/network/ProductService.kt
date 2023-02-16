@@ -12,13 +12,11 @@ import javax.inject.Inject
  *
  * */
 
-class ProductService @Inject constructor(){
-
-    private val retrofit = getRetrofit()
+class ProductService @Inject constructor(private val productApiClient: ProductApiClient){
 
     suspend fun getProducts() : ApiResult {
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(ProductApiClient::class.java).getProducts()
+            val response = productApiClient.getProducts()
             if (response.isSuccessful && !response.body()?.products.isNullOrEmpty()) {
                 ApiResult.Success(response.body()?.products)
             } else {
@@ -26,13 +24,4 @@ class ProductService @Inject constructor(){
             }
         }
     }
-
-
-    private fun getRetrofit() : Retrofit {
-        return Retrofit.Builder()
-            .baseUrl("https://gist.githubusercontent.com/palcalde/6c19259bd32dd6aafa327fa557859c2f/raw/ba51779474a150ee4367cda4f4ffacdcca479887/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-
 }
