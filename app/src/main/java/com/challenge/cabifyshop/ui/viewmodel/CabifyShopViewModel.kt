@@ -10,6 +10,7 @@ import com.challenge.cabifyshop.domain.model.ProductCart
 import com.challenge.cabifyshop.domain.model.Promotion
 import com.challenge.cabifyshop.domain.model.PromotionsType
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -73,7 +74,7 @@ class CabifyShopViewModel @Inject constructor(
     }
 
     fun addToCart(codeProduct: String, quantity: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val response = getProductFromCartUseCase()
             if (response.isNotEmpty()) {
 
