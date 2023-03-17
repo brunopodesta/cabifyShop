@@ -10,6 +10,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Module to Provide ShopDatabase instance
+ */
+
 @Module
 @InstallIn(SingletonComponent::class)
 object RoomModule {

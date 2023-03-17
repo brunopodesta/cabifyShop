@@ -9,6 +9,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Module to provide Retrofit and ProductApiClient class
+ */
 
 @Module
 @InstallIn(SingletonComponent::class)

@@ -1,17 +1,28 @@
 package com.challenge.cabifyshop.di
 
 import com.challenge.cabifyshop.data.ProductRepositoryImpl
+import com.challenge.cabifyshop.data.database.dao.ShopDao
+import com.challenge.cabifyshop.data.network.ProductService
 import com.challenge.cabifyshop.domain.ProductRepository
-import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
+/**
+ * Module to provide ProductRepositoryImpl class
+ */
 
 @Module
-@InstallIn(ViewModelComponent::class)
-abstract class RepositoryModule {
+@InstallIn(SingletonComponent::class)
+object RepositoryModule {
 
-    @Binds
-    abstract fun binProductRepository(repository: ProductRepositoryImpl) : ProductRepository
+    @Provides
+    @Singleton
+    fun provideProductRepository(
+        productService: ProductService,
+        shopDao: ShopDao
+    ) = ProductRepositoryImpl(productService, shopDao) as ProductRepository
 
 }
