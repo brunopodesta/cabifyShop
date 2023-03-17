@@ -1,7 +1,5 @@
 package com.challenge.cabifyshop.domain.model
 
-import com.challenge.cabifyshop.data.database.entities.ProductCartEntity
-
 
 /**
  * Class that represent a Product in the cart in domain layer
@@ -19,6 +17,3 @@ data class ProductCart(
         else -> TypeProduct.OTHER()
     }
 }
-
-fun ProductCartEntity.toDomain() =
-    ProductCart(code = code, name = name, price = price, quantity = quantity)

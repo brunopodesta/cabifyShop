@@ -1,7 +1,5 @@
 package com.challenge.cabifyshop.domain
 
-import com.challenge.cabifyshop.data.ProductRepository
-import com.challenge.cabifyshop.data.database.entities.toDatabase
 import com.challenge.cabifyshop.domain.model.Product
 import javax.inject.Inject
 
@@ -15,7 +13,7 @@ class GetProductUseCase @Inject constructor(private val repository: ProductRepos
         val products = repository.getProductsFromApi()
         return if (products.isNotEmpty()) {
             repository.deleteProductsDatabase()
-            repository.insertProductDatabase(products.map { it.toDatabase() })
+            repository.insertProductDatabase(products)
             products
         } else {
             repository.getProductsFromDatabase()

@@ -1,7 +1,5 @@
 package com.challenge.cabifyshop.domain.model
 
-import com.challenge.cabifyshop.data.model.PromotionModel
-
 /**
  * Class that represent a Promotion in domain layer
  */
@@ -20,10 +18,3 @@ data class Promotion(
     }
 }
 
-fun PromotionModel.toDomain() = Promotion(
-    code = code,
-    description = description,
-    products = products,
-    new_price = new_price,
-    min_quantity = min_quantity
-)

@@ -1,6 +1,5 @@
 package com.challenge.cabifyshop.domain
 
-import com.challenge.cabifyshop.data.ProductRepository
 import javax.inject.Inject
 
 /**

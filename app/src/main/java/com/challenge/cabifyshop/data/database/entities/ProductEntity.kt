@@ -17,3 +17,4 @@ data class ProductEntity (
     @ColumnInfo(name = "price") val price : Double)
 
 fun Product.toDatabase() = ProductEntity(code = code, name = name, price = price)
+fun ProductEntity.toDomain() = Product(code = code, name = name, price = price)

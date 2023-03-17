@@ -1,9 +1,6 @@
 package com.challenge.cabifyshop.domain
 
-import com.challenge.cabifyshop.data.ProductRepository
-import com.challenge.cabifyshop.data.database.entities.ProductCartEntity
 import com.challenge.cabifyshop.domain.model.ProductCart
-import com.challenge.cabifyshop.domain.model.toDomain
 import javax.inject.Inject
 
 /**
@@ -14,9 +11,7 @@ class GetProductFromCartUseCase @Inject constructor(private val repository: Prod
 
     suspend operator fun invoke() : List<ProductCart> {
         val productList = repository.getProductsFromCart()
-        return if (productList.isNotEmpty()) {
-            productList.map { it.toDomain() }
-        } else {
+        return productList.ifEmpty {
             emptyList()
         }
     }
